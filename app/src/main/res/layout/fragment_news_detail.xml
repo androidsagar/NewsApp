@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto">
+    <data>
+        <variable
+            name="news"
+            type="com.example.newsapp.data_models.News" />
+
+    </data>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/_20sdp"
+    tools:context=".fragments.NewsDetailFragment">
+
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/image_detail"
+        loadImage="@{news.media.get(0).mediaMetadata.get(1).url}"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+        android:id="@+id/text_date"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@{news.published_date}"
+        tools:text="2020-02-13"
+        android:gravity="center_vertical"
+        android:layout_marginTop="@dimen/_20sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/image_detail"
+        android:drawableStart="@drawable/ic_date"
+        android:fontFamily="sans-serif"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"/>
+
+
+
+    <TextView
+        android:id="@+id/text_title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@{news.title}"
+        tools:text="Title"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_date"
+        android:fontFamily="sans-serif"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+        />
+
+    <TextView
+        android:id="@+id/text_description"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@{news.abstract}"
+        tools:text="Description"
+        android:layout_marginTop="@dimen/_5sdp"
+        app:layout_constraintStart_toStartOf="@+id/text_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/text_title"
+        android:fontFamily="sans-serif"
+        android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+        />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

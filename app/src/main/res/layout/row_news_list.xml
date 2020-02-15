@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import type="android.view.View"/>
+        <variable
+            name="news"
+            type="com.example.newsapp.data_models.News" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:padding="@dimen/_16sdp"
+        android:animateLayoutChanges="true">
+
+        <ImageView
+            android:layout_width="@dimen/_32sdp"
+            android:layout_height="@dimen/_32sdp"
+            android:id="@+id/image_avatar"
+            loadCircularImage="@{news.media.get(0).mediaMetadata.get(0).url}"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/text_title"
+            app:layout_constraintBottom_toBottomOf="@+id/text_author"
+            />
+
+        <TextView
+            android:id="@+id/text_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{news.title}"
+            tools:text="Title"
+            android:layout_marginStart="@dimen/_16sdp"
+            app:layout_constraintStart_toEndOf="@+id/image_avatar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:fontFamily="sans-serif"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Title"
+            />
+
+        <TextView
+            android:id="@+id/text_author"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{news.author}"
+            tools:text="Author"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintStart_toStartOf="@+id/text_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_title"
+            android:fontFamily="sans-serif"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"
+            />
+
+        <TextView
+            android:id="@+id/text_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{news.published_date}"
+            tools:text="2020-02-13"
+            android:gravity="center_vertical"
+            android:layout_marginTop="@dimen/_5sdp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/text_author"
+            android:drawableStart="@drawable/ic_date"
+            android:fontFamily="sans-serif"
+            android:textAppearance="@style/TextAppearance.AppCompat.Widget.ActionBar.Subtitle"/>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
