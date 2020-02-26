@@ -21,7 +21,7 @@
             android:layout_width="@dimen/_32sdp"
             android:layout_height="@dimen/_32sdp"
             android:id="@+id/image_avatar"
-            loadCircularImage="@{news.media.get(0).mediaMetadata.get(0).url}"
+            loadCircularImage="@{news.media}"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/text_title"
             app:layout_constraintBottom_toBottomOf="@+id/text_author"

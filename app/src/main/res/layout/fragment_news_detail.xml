@@ -20,7 +20,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:id="@+id/image_detail"
-        loadImage="@{news.media.get(0).mediaMetadata.get(1).url}"
+        loadImage="@{news.media}"
         app:layout_constraintTop_toTopOf="parent"/>
 
     <TextView
